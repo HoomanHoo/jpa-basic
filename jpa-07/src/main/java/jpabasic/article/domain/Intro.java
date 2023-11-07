@@ -5,7 +5,7 @@ import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Intro {
-    @Column(table = "writer_intro", name = "content_type")
+    @Column(table = "writer_intro", name = "content_type")  //테이블 이름 설정
     private String contentType;
     @Column(table = "writer_intro")
     private String content;

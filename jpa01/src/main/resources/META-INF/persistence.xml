@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>  <!-- 영속성 관리를 persistence.xml에서 설정 내용 기반으로 진행함-->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             version="2.1">
+    <persistence-unit name="jpabegin" transaction-type="RESOURCE_LOCAL">    <!--영속성 관리 단위를 지정함-->
+        <class>jpa01.domain.User</class>    <!--매핑 대상 클래스 지정-->
+        <class>jpa01.domain.Employee</class>
+        <class>jpa01.domain.Hotel</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>   <!--리스트 되지 않은 클래스를 제외한다-->
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>   
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/jpabegin?characterEncoding=utf8"/>
+            <property name="jakarta.persistence.jdbc.user" value="jpauser"/>
+            <property name="jakarta.persistence.jdbc.password" value="jpapass"/>
+            
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hikari.poolName" value="pool"/>
+            <property name="hibernate.hikari.maximumPoolSize" value="10"/>
+            <property name="hibernate.hikari.minimumIdle" value="10"/>
+            <property name="hibernate.hikari.connectionTimeout" value="1000"/> <!--1초-->
+        </properties>
+    </persistence-unit>
+</persistence>

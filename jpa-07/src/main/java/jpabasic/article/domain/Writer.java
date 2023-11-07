@@ -5,13 +5,9 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "writer")
 @SecondaryTables({
-        @SecondaryTable(name = "writer_address",
-                pkJoinColumns = @PrimaryKeyJoinColumn(name = "writer_id", referencedColumnName = "id")
-        ),
-        @SecondaryTable(name = "writer_intro",
-                pkJoinColumns = @PrimaryKeyJoinColumn(name = "writer_id", referencedColumnName = "id")
-        )}
-)
+        @SecondaryTable(name = "writer_address", pkJoinColumns = @PrimaryKeyJoinColumn(name = "writer_id", referencedColumnName = "id")),
+        @SecondaryTable(name = "writer_intro", pkJoinColumns = @PrimaryKeyJoinColumn(name = "writer_id", referencedColumnName = "id") // @
+        ) })
 public class Writer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
