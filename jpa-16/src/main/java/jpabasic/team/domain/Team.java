@@ -14,6 +14,10 @@ public class Team {
     @OneToMany
     @JoinColumn(name = "team_id")
     private Set<Player> players = new HashSet<>();
+    /*
+     * OneToMany는 Team의 시점에서 Player를 참조할 때 사용하는 매핑
+     * Set 타입으로 Player의 정보들을 가져온다
+     */
 
     protected Team() {
     }
@@ -36,8 +40,12 @@ public class Team {
     public void removePlayer(Player p) {
         players.remove(p);
     }
+    // 실행시 조건에 맞는 team_id 값을 null로 업데이트 한다
+    // team_id 뿐만이 아니라 player_id의 값도 조건에 있어야 한다
 
     public void removeAllPlayers() {
         players.clear();
     }
+    // 실행시 조건에 맞는 team_id 값을 모두 null로 업데이트 한다
+    // team_id만 조건으로 가진다
 }

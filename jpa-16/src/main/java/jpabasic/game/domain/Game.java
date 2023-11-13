@@ -15,6 +15,10 @@ public class Game {
     @JoinColumn(name = "game_id")
     @MapKeyColumn(name = "role_name")
     private Map<String, Member> members = new HashMap<>();
+    /*
+     * MapKeyColumn의 name 속성에서는 map의 key로 사용될 값을 담을 컬럼을 설정한다
+     * 설정한 컬럼은 Many - 여기서는 member - 측 테이블에 설정된다
+     */
 
     protected Game() {
     }

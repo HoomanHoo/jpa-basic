@@ -11,6 +11,10 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "sight_id")
     private Sight sight;
+    // ManyToOne 어노테이션이 있는 엔티티-테이블에 FK 컬럼이 생긴다
+    // JoinColumn에 설정한 컬럼을 PK로 사용한다(PK를 적어줘야함)
+    // 기본 FetchType은 EAGER이다
+
     private int grade;
     private String comment;
 

@@ -1,5 +1,7 @@
 package jpabasic.reserve.domain;
 
+import java.util.List;
+import java.util.ArrayList;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,6 +18,8 @@ public class User {
 
     @Column(name = "create_date")
     private LocalDateTime createDate;
+
+    private List<String> testField = new ArrayList<String>();
 
     protected User() {
     }
@@ -41,6 +45,8 @@ public class User {
     public void changeName(String newName) {
         this.name = newName;
     }
+
+
 
     @Override
     public String toString() {

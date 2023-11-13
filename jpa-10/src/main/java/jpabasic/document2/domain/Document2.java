@@ -13,11 +13,9 @@ public class Document2 {
     private String title;
     private String content;
     @ElementCollection
-    @CollectionTable(
-            name = "doc_prop",
-            joinColumns = @JoinColumn(name = "doc_id")
-    )
-    @MapKeyColumn(name = "name")
+    @CollectionTable(name = "doc_prop", joinColumns = @JoinColumn(name = "doc_id"))
+    @MapKeyColumn(name = "name") // Key 값을 저장할 컬럼만 매핑한다
+                                 // value 값을 저장할 컬럼은 PropValue의 필드를 그대로 따라간다
     private Map<String, PropValue> props = new HashMap<>();
 
     protected Document2() {

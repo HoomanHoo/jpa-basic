@@ -13,13 +13,13 @@ public class Role2 {
     private String name;
 
     @ElementCollection
-    @CollectionTable(
-            name = "role_perm",
-            joinColumns = @JoinColumn(name = "role_id")
-    )
+    @CollectionTable(name = "role_perm", joinColumns = @JoinColumn(name = "role_id")) // embeddable 타입도 Set 자료형에 넣을 수 있다
     private Set<GrantedPermission> permissions = new HashSet<>();
 
-    protected Role2() {}
+    // embaddalble 타입 클래스에는 hashCode, equals 메서드가 구현되어있어야 한다
+
+    protected Role2() {
+    }
 
     public Role2(String id, String name, Set<GrantedPermission> permissions) {
         this.id = id;
@@ -40,7 +40,7 @@ public class Role2 {
     }
 
     public void revokeAll() {
-//        this.permissions.clear();
+        // this.permissions.clear();
         this.permissions = new HashSet<>();
     }
 

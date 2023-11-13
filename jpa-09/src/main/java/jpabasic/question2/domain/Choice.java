@@ -4,13 +4,14 @@ import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.persistence.Embeddable;
 
-@Embeddable
+@Embeddable // embaddable 타입도 컬렉션 자료형으로 매핑이 가능하다
 @Access(AccessType.FIELD)
 public class Choice {
     private String text;
     private boolean input;
 
-    protected Choice() {}
+    protected Choice() {
+    }
 
     public Choice(String text, boolean input) {
         this.text = text;

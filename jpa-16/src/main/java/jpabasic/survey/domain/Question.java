@@ -31,8 +31,10 @@ public class Question {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Question question = (Question) o;
         return Objects.equals(id, question.id);
     }
@@ -42,3 +44,11 @@ public class Question {
         return Objects.hash(id);
     }
 }
+/*
+ * 1-N 단방향 매핑
+ * - 컬렉션을 사용한 매핑
+ * - Set
+ * - List
+ * - Map
+ * 
+ */

@@ -27,3 +27,7 @@ public class Sight {
         return name;
     }
 }
+/*
+ * 참조키를 이용한 N-1 관계
+ * 
+ */

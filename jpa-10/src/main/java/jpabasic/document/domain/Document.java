@@ -13,15 +13,14 @@ public class Document {
     private String title;
     private String content;
     @ElementCollection
-    @CollectionTable(
-            name = "doc_prop",
-            joinColumns = @JoinColumn(name = "doc_id")
-    )
-    @MapKeyColumn(name = "name")
-    @Column(name = "value")
+    @CollectionTable(name = "doc_prop", // 연관 관계 테이블 지정
+            joinColumns = @JoinColumn(name = "doc_id")) // 연관 관계 테이블의 FK 컬럼 지정
+    @MapKeyColumn(name = "name") // Map의 Key 값을 저장할 컬럼을 매핑
+    @Column(name = "value") // Map의 Value 값을 저장할 컬럼을 매핑
     private Map<String, String> props = new HashMap<>();
 
-    protected Document() {}
+    protected Document() {
+    }
 
     public Document(String id, String title, String content, Map<String, String> props) {
         this.id = id;

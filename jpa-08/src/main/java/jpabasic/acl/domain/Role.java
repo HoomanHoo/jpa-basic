@@ -13,14 +13,14 @@ public class Role {
     private String name;
 
     @ElementCollection
-    @CollectionTable(
-            name = "role_perm",
-            joinColumns = @JoinColumn(name = "role_id")
+    @CollectionTable(name = "role_perm", // 연관 관계 테이블명
+            joinColumns = @JoinColumn(name = "role_id") // FK 컬럼
     )
-    @Column(name = "perm")
+    @Column(name = "perm") // 실제 값을 담고 있는 컬럼 / laze lodding 방식으로 불러온다
     private Set<String> permissions = new HashSet<>();
 
-    protected Role() {}
+    protected Role() {
+    }
 
     public Role(String id, String name, Set<String> permissions) {
         this.id = id;
