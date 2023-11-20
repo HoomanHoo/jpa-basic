@@ -31,7 +31,7 @@ public class SpringDataJpa05Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         jdbcTemplate.update("truncate table user");
-        for (int i = 1 ; i <= 20 ; i++) {
+        for (int i = 1; i <= 20; i++) {
             User user = new User("email" + i + "@email.com", "이름" + i, LocalDateTime.now());
             userRepository.save(user);
             logger.info("saved: {}", user.getEmail());
@@ -53,6 +53,7 @@ public class SpringDataJpa05Application implements CommandLineRunner {
         user1.ifPresentOrElse(u -> logger.info("이름1: {}", u), () -> logger.info("이름1: 없음"));
         Optional<User> user0 = userRepository.findByName("이름0");
         user0.ifPresentOrElse(u -> logger.info("이름0: {}", u), () -> logger.info("이름0: 없음"));
-        // Optional<User> user20 = userRepository.findByName("이름20"); // name이 '이름20'이 데이터가 두 개 존재하므로 익셉션
+        // Optional<User> user20 = userRepository.findByName("이름20"); // name이 '이름20'이
+        // 데이터가 두 개 존재하므로 익셉션
     }
 }

@@ -35,7 +35,8 @@ public class SpringDataJpa01Application implements CommandLineRunner {
             while (true) {
                 System.out.println("명령어를 입력하세요:");
                 String line = reader.readLine();
-                if (line == null) break;
+                if (line == null)
+                    break;
                 if (line.startsWith("new ")) {
                     handleNew(line);
                 } else if (line.startsWith("get ")) {
@@ -94,3 +95,12 @@ public class SpringDataJpa01Application implements CommandLineRunner {
         }
     }
 }
+/*
+ * JPA만 단독으로 사용하는 경우는 별로 없음
+ * Spring(Boot)와 같이 사용하는 경우가 많음
+ * -> 설정할 양이 줄어들음
+ * -> spring-boot-starter-data-jpa 의존성 추가가 필요함
+ * 엔티티 단위로 Repository 인터페이스를 상속받은 인터페이스를 생성함
+ * - 지정한 규칙에 맞게 메서드를 추가
+ * - 필요한 곳에 해당 인터페이스 타입을 주입하여 사용한다
+ */
