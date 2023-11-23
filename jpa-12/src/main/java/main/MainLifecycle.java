@@ -109,8 +109,7 @@ public class MainLifecycle {
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/jpabegin?characterEncoding=utf8",
                 "jpauser",
                 "jpapass");
-             Statement stmt = conn.createStatement()
-        ) {
+                Statement stmt = conn.createStatement()) {
             stmt.executeUpdate("delete from user where email != ''");
         } catch (SQLException e) {
             throw new RuntimeException(e);
