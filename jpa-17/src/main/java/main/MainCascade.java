@@ -39,7 +39,7 @@ public class MainCascade {
             Player p22 = new Player("P-22", "선수22");
             Set<Player> players = new HashSet<>();
             players.add(p21);
-            players.add(p22);
+            players.add(p22); // 플레이어를 영속화 하지 않았음
             em.persist(new Team("T-01", "팀1", players));
             tx.commit();
         } catch (Exception e) {
@@ -50,6 +50,9 @@ public class MainCascade {
         }
     }
     // DB에 Player Entity가 없기 때문에 Team을 persist 하면 에러가 발생한다
+    // jakarta.persistence.OptimisticLockException 발생
+    // Batch update returned unexpected row count from update [0]; actual row count:
+    // 0; expected: 1; statement executed: update player set team_id=? where id=?
     // 이는 영속성 전파로 해결한다
     // OneToMany 의 cascade 속성을 CascadeType.PERSIST로 지정해주면 된다
     /*

@@ -11,9 +11,9 @@ public class Team {
     @Id
     private String id;
     private String name;
-    @OneToMany(
-            cascade = CascadeType.PERSIST
-    )
+    @OneToMany // (
+               // cascade = CascadeType.PERSIST
+    // )
     @JoinColumn(name = "team_id")
     private Set<Player> players = new HashSet<>();
 
